@@ -1,0 +1,9 @@
+{
+  "phpServer.phpPath": "php",
+  "phpServer.browser": "chrome",
+  "phpServer.port": 3000,
+  "phpServer.relativePath": "",
+  "phpServer.root": "${workspaceFolder}",
+  "phpServer.document-root": "${workspaceFolder}/public",
+  "phpServer.router": "public/index.php"
+}

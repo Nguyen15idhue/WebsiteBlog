@@ -1,0 +1,20 @@
+RewriteEngine On
+
+# Chuyển hướng OPTIONS requests để CORS hoạt động
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Nếu request là cho file hoặc thư mục thực tế, sử dụng nó
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Tất cả các request chuyển hướng đến index.php
+RewriteRule ^ index.php [QSA,L]
+
+# CORS headers
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Accept, Origin, Authorization, X-Requested-With"
+    Header set Access-Control-Allow-Credentials "true"
+</IfModule>
